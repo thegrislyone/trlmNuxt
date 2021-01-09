@@ -13,7 +13,7 @@ export const getters = {
 }
 
 export const actions = {
-  async getCart({commit, dispatch}, item) {
+  async getCart({commit, dispatch}, {vm, item}) {
 
     commit('loadingStatusChange', true)
 
@@ -28,13 +28,13 @@ export const actions = {
           //show cart informer
         }
 
-        // if (this.authorizationProcess) {
+        if (vm.$store.getters['auth/authorizationProcess']) {
             
-        //   this.authorizationProcess = false
-        //   this.$modal.hide('sign-in')
-        //   this.$router.push('/checkout?start')
+          vm.$store.commit('auth/setAuthorizationProcess', false)
+          vm.$router.push('/checkout?start')
           
-        // }
+          //   this.$modal.hide('sign-in')
+        }
 
         commit('loadingStatusChange', false)
         
@@ -58,6 +58,7 @@ export const actions = {
 
     this.$axios.put(url, request)
       .then(response => {
+        const data = response.data
 
         console.log('put', data)
         dispatch('getCart')
@@ -69,7 +70,7 @@ export const actions = {
       })
 
   },
-  async removeItemFromCartRequest({commit, dispatch}, item) {
+  async removeItemFromCartRequest({commit, dispatch}, id) {
 
     const url = '/api/dbtrlm/auth/cart_line/' + id
 
@@ -90,11 +91,6 @@ export const actions = {
     return response
         
   }
-  /**
-   * getGart
-   * updateQuantity
-   * removeItemFromCartRequest
-   */
 }
 
 export const mutations = {
@@ -118,8 +114,4 @@ export const mutations = {
   loadingStatusChange: (state, status) => {
     state.cartLoading = status
   }
-  /**
-   * setCart
-   * removeitemfromcart
-   */
 }

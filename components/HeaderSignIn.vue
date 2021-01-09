@@ -116,7 +116,7 @@
       to="/personal"
       class="sign-in-form__btn btn"
       tag="button"
-      @click.native="$modal.hide('sign-in')"
+      @click="personalRedirect"
     >
       В личный кабинет
     </n-link>
@@ -256,6 +256,10 @@
       }
     },
     methods: {
+      personalRedirect() {
+        this.$router.push('/personal')
+        this.$modal.hide('sign-in')
+      },
       signIn() {
 
         if (this.signInLoading) {

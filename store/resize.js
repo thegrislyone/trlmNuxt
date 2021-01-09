@@ -3,6 +3,12 @@ export const state = () => ({
   windowHeight: 0
 })
 
+export const getters = {
+  // Cart
+  windowWidth: state => state.windowWidth,
+  windowHeight: state => state.windowHeight,
+}
+
 export const mutations = {
   setWindowWidth: (state, payload) => {
     state.windowWidth = payload

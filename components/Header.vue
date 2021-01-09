@@ -242,7 +242,7 @@
     },
     computed: {
       windowWidth() {
-        return this.$store.state.resize.windowWidth
+        return this.$store.getters['resize/windowWidth']
       }
     },
     watch: {
@@ -252,6 +252,10 @@
     },
     methods: {
       onResize() {
+
+        this.$store.commit('resize/setWindowWidth', window.innerWidth)
+        this.$store.commit('resize/setWindowHeight', window.innerHeight)
+
         if ( this.windowWidth >= 640 ) {
 
           if ( !document.querySelector('.header__bottomline > .catalog-dropdown') ) {

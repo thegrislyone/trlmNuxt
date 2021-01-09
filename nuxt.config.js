@@ -27,6 +27,7 @@ export default {
     '~plugins/vuelidate.js',
     '~plugins/vue-debounce.js',
     '~plugins/v-click-outside.js',
+    '~plugins/properties.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
