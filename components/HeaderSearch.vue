@@ -162,20 +162,20 @@
 
           this.searchAutocompleteLoading = true
 
-          // $.ajax({
-          //   url: '/api/general/public/search?search=' + value,
-          //   dataType: 'json',
-          //   success: data => {
-          //     console.log(data)
-          //     this.searchResult = data
-          //     this.searchAutocompleteLoading = false
-          //   },
-          //   error: data => {
-          //     console.log(data.responseText)
-          //     this.searchAutocompleteError = true
-          //     this.searchAutocompleteLoading = false
-          //   },
-          // })
+          this.$axios.get('/api/general/public/search?search=' + value)
+            .then(response => {
+              const data = response.data
+
+              console.log(data)
+              this.searchResult = data
+              this.searchAutocompleteLoading = false
+            })
+            .catch(error => {
+              const responseText = error.response.request.responseText
+
+              this.searchAutocompleteError = true
+              this.searchAutocompleteLoading = false
+            })
 
           // this.$metricGoal('quick_search')
 
