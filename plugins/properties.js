@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-Vue.prototype.$empty = function(mixed_var) {
+Vue.prototype.$is_empty = function(mixed_var) {
   return (
     mixed_var === undefined ||
     mixed_var === "" ||

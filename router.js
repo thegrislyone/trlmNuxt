@@ -1,7 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+/*
+  !: pages
+*/
 import Index from '~/pages/Index.vue'
+import Registration from '~/pages/Registration.vue'
+
 
 Vue.use(Router)
 
@@ -89,11 +94,11 @@ const routes = [
   //   name: 'cart',
   //   component: Cart
   // },
-  // {
-  //   path: '/registration',
-  //   name: 'registration',
-  //   component: Registration
-  // },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: Registration
+  },
   // {
   //   path: '/checkout',
   //   name: 'checkout',

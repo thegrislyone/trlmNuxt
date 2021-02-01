@@ -70,7 +70,8 @@
 
   export default {
 		components: {
-			IndexSlider
+			IndexSlider,
+			StickyLoader
 		},
     data() {
 		return {
