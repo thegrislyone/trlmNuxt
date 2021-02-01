@@ -293,43 +293,39 @@
           request.login = this.signInForm.email
         }
 
-        // $axios.$post('/api/auth/login', request)
-        //   .then()
+        this.$axios.post('https://general.dbtrlm.ru/api/auth/login'/*'/api/auth/login'*/, request)
+          .then(response => {
 
-        // $.ajax({
-        //   url: "/api/auth/login",
-        //   method: "POST",
-        //   dataType: 'json',
-        //   data: request,
-        //   success: (data) => {
-            
-        //     console.log('login', data)
+            const data = response.data
 
-        //     if (data.errors) {
+            console.log('login', data)
 
-        //       this.signInErrors = data.errors
+            if (data.errors) {
 
-        //     } else {
+              this.signInErrors = data.errors
 
-        //       this.$store.commit('setAuthorization', true)
+            } else {
 
-        //       this.getCart()
+              this.$store.commit('setAuthorization', true)
 
-        //       const pickPointData = data.data.relationships.pick_point.data
-        //       this.pickpointUpdate(pickPointData)
+              this.getCart()
 
-        //       this.$metricGoal(data.data.attributes.role)
+              const pickPointData = data.data.relationships.pick_point.data
+              this.pickpointUpdate(pickPointData)
 
-        //     }
+              this.$metricGoal(data.data.attributes.role)
 
-        //     this.signInLoading = false
+            }
 
-        //   },
-        //   error: (data) => {
-        //     this.signInErrors.push(data.responseText)
-        //     this.signInLoading = false
-        //   }
-        // })
+            this.signInLoading = false
+          })
+          .catch(error => {
+            const responseText = error.response.request.responseText
+
+            this.signInErrors.push(responseText)
+            this.signInLoading = false
+          })
+
       },
       resetPassword() {
 
@@ -362,25 +358,24 @@
         this.userPasswordReset(request)
       },
       userPasswordReset(data) {
-        // $.ajax({
-        //   url: "/api/auth/password-recovery-new",
-        //   method: "GET",
-        //   dataType: 'json',
-        //   data: data,
-        //   success: (data) => {
-        //     if (data.success) {
-        //       this.passwordResetSuccess = data.success
-        //     } else if (data.errors) {
-        //       this.passwordResetErrors = data.errors
-        //     }
-        //     this.signInLoading = false
-        //   },
-        //   error: (data) => {
-        //     console.log(data)
-        //     this.passwordResetErrors.push(data.responseText)
-        //     this.signInLoading = false
-        //   }
-        // })
+        this.$axios.get('https://general.dbtrlm.ru/api/auth/password-recovery-new'/*'/api/auth/password-recovery-new'*/, data)
+          .then(response => {
+            const data = response.data
+
+            if (data.success) {
+              this.passwordResetSuccess = data.success
+            } else if (data.errors) {
+              this.passwordResetErrors = data.errors
+            }
+            this.signInLoading = false
+          })
+          .catch(error => {
+            const responseText = error.response.request.responseText
+
+            console.log(error)
+            this.passwordResetErrors.push(responseText)
+            this.signInLoading = false
+          })
       },
     },
   }
