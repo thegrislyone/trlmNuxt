@@ -262,6 +262,9 @@ import PersonalText from './PersonalText.vue'
 			
 		},
 		computed: {
+			windowWidth() {
+				return this.$store.getters['resize/windowWidth']
+			},
 			mainData() {
 				return this.getData.form.main
 			},
@@ -317,8 +320,8 @@ import PersonalText from './PersonalText.vue'
 		},
 		mounted() {
 
-			if (this.$root.windowWidth >= 960) {
-				this.sidebarSticky = new stickySidebar('.personal-content__sidebar', {
+			if (this.windowWidth >= 960) {
+				this.sidebarSticky = new StickySidebar('.personal-content__sidebar', {
 					containerSelector: '.personal-content',
 					innerWrapperSelector: '.sidebar__sidebar-content',
 					topSpacing: 0,
@@ -339,9 +342,9 @@ import PersonalText from './PersonalText.vue'
 		},
 		methods: {
 			stickyResize() {
-				if (this.$root.windowWidth >= 960) {
+				if (this.windowWidth >= 960) {
 					if (this.$is_empty(this.sidebarSticky)) {
-						this.sidebarSticky = new stickySidebar('.personal-content__sidebar', {
+						this.sidebarSticky = new StickySidebar('.personal-content__sidebar', {
 							containerSelector: '.personal-content',
 							innerWrapperSelector: '.sidebar__sidebar-content',
 							topSpacing: 0,
@@ -374,29 +377,29 @@ import PersonalText from './PersonalText.vue'
 					}
 				}
 				
-                this.url = this.active.submenu[this.brightSubmenuIndex].api_url
+				this.url = this.active.submenu[this.brightSubmenuIndex].api_url
 
-                this.getData = {"form":{"main":{"name":{"type":"text","required":"required","label":"\u0418\u043c\u044f","description":"","value":"trlm.ru","max":32,"min":null,"error":null,"error_text":null},"last_name":{"type":"text","required":null,"label":"\u0424\u0430\u043c\u0438\u043b\u0438\u044f","description":null,"value":"\u0414\u0430\u043d\u0438\u043b\u044c\u0447\u0435\u043d\u043a\u043e","max":32,"min":null,"error":null,"error_text":null},"phone":{"type":"phone","required":"required","label":"\u0422\u0435\u043b\u0435\u0444\u043e\u043d","description":"","value":"+79281520788","max":null,"min":null,"error":null,"error_text":null,"is_sms_valid":true},"email":{"type":"email","required":"required","label":"E-mail","description":"","value":"quaz@list.ru","max":32,"min":null,"error":null,"error_text":null}}}}
-                this.loading = false
-                // this.$axios.get(this.url)
-                //     .then(response => {
-                //         const data = response.data
+				// this.getData = {"search":false,"page":{"current_page":1,"last_page":1,"per_page":20,"from":1,"to":1},"thead":[{"key":"name","caption":"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435","sort":false},{"key":"spread","caption":"\u0420\u0430\u0437\u043d\u0438\u0446\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c %","sort":false},{"key":"discount","caption":"+ \u0441\u043a\u0438\u0434\u043a\u0430 %","sort":false}],"filter":[],"row":[{"id":1,"name":"\u041c\u043e\u0435 Felix \u043f\u0440\u0430\u0432\u0438\u043b\u043e","spread":"19.9","discount":"0.1"}],"buttons":{"top":[{"url":null,"method":"GET","action":"\/api\/form-v2\/rule-controll-price\/create","caption":"\u0421\u043e\u0437\u0434\u0430\u0442\u044c","icon":""}],"last_column":[{"url":null,"method":"GET","action":"\/api\/form-v2\/rule-controll-price\/{id}\/edit","caption":"\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c","icon":"\/trlm\/images\/i-pen-tool.svg"},{"url":null,"method":"DELETE","action":"\/api\/form-v2\/rule-controll-price\/{id}","caption":"\u0423\u0434\u0430\u043b\u0438\u0442\u044c","icon":"\/trlm\/images\/i-trash-bin_red.svg"}]},"alerts":null}
+				// this.loading = false
+				this.$axios.get(this.url)
+						.then(response => {
+								const data = response.data
 
-                //         if (!this.$is_empty(data.errors)) {
-				// 			this.errors = data.errors
-				// 			this.messageShow = true
-				// 		}
+								if (!this.$is_empty(data.errors)) {
+									this.errors = data.errors
+									this.messageShow = true
+								}
 
-				// 		this.getData = data
+								this.getData = data
 
-				// 		if (this.activeSubmenu == 'change-password') {
-				// 			for (let key in this.getData.form.main) this.postObject[key] = ""
-				// 		} else if (this.activeMenu == 'profile' && !this.activeSubmenu && this.getData.form) {
-				// 			for (let key in this.getData.form.main) this.postObject[key] = this.getData.form.main[key].value
-				// 		}
-				// 		this.loading = false
-				// 		this.loadingChange()
-                //     })
+								if (this.activeSubmenu == 'change-password') {
+									for (let key in this.getData.form.main) this.postObject[key] = ""
+								} else if (this.activeMenu == 'profile' && !this.activeSubmenu && this.getData.form) {
+									for (let key in this.getData.form.main) this.postObject[key] = this.getData.form.main[key].value
+								}
+								this.loading = false
+								this.loadingChange()
+						})
 
 			},
 			changePickpoint() {

@@ -38,15 +38,15 @@
       > 
 
       <template v-slot:close-icon>
-        <img src="/trlm/images/i-close.svg" alt="">
+        <img src="../static/images/i-close.svg" alt="">
       </template>
 
       <template v-slot:previous-month-icon>
-        <img src="/trlm/images/i-previous.svg" alt="">
+        <img src="../static/images/i-previous.svg" alt="">
       </template>
 
       <template v-slot:next-month-icon>
-        <img src="/trlm/images/i-next.svg" alt="">
+        <img src="../static/images/i-next.svg" alt="">
       </template>
 
       </AirbnbStyleDatepicker>

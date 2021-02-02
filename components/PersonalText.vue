@@ -258,18 +258,17 @@
         
         let url = this.api_url + '?' + (this.autocompleteKey || this.name || 'search') + '=' + this.value
         
-        if (!this.value) this.list = []
+        if (!this.value) {
+          this.list = []
+        } else {
+          this.$axios.get(url)
+            .then(response => {
+              const data = response.data
 
-        else 
-          $.ajax({
-          url: url,
-          method: "GET",
-          dataType: "json",
-          success: (data) => {
-            this.list = data
-            this.isListShow = true
-          }
-        })
+              this.list = data
+              this.isListShow = true
+            })
+        }
       },
       choose(index) {
 

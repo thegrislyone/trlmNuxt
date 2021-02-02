@@ -97,18 +97,19 @@ import { debounce } from 'vue-debounce'
     },
     methods: {
       getList() {
-        let url = this.api + '?search=' + this.search
-        if (!this.search) this.list = []
-    
-        else 
-          $.ajax({
-          url: url,
-          method: "GET",
-          dataType: "json",
-          success: (data) => {
-            this.list = data
-          }
-        })
+        let url = new URL(this.api)
+        url.searchParams.set('search', this.search)
+
+        if (!this.search) {
+          this.list = []
+        } else {
+          this.$axios.get(url)
+            .then(response => {
+              const data = response.data
+
+              this.list = data
+            })
+        }
       },
       choose(index) {
         this.value = this.list[index].name

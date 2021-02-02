@@ -266,11 +266,9 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
         let request = new URL(url_string)
         request.searchParams.set('phone', `+7${this.model}`)
 
-        $.ajax({
-          url: request,
-          method: "GET",
-          dataType: 'json',
-          success: (data) => {
+        this.$axios.get(request)
+          .then(response => {
+            const data = response.data
 
             if (data.errors) {
 
@@ -292,12 +290,11 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
             }
 
             this.smsLoading = false
-
-          },
-          error: (data) => {
+          })
+          .catch(error => {
             this.smsLoading = false
-          }
-        })
+          })
+
       },
       smsFormSubmit() {
         this.smsLoading = true
@@ -309,12 +306,10 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
         let request = new URL(url_string)
         request.searchParams.set('phone', `+7${this.model}`)
         request.searchParams.set('code', this.smsInput)
-        
-        $.ajax({
-          url: request,
-          method: "GET",
-          dataType: 'json',
-          success: (data) => {
+
+        this.$axios.get(request)
+          .then(response => {
+            const data = response.data
 
             if (data.errors) {
               this.smsErrors = data.errors
@@ -326,12 +321,11 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
             }
 
             this.smsLoading = false
-
-          },
-          error: (data) => {
+          })
+          .catch(error => {
             this.smsLoading = false
-          }
-        })
+          })
+        
       },
       activeStatusChange() {
         this.$emit('activeStatusChange', this.name, this.disabled)

@@ -338,15 +338,13 @@ import PersonalNumber from './PersonalNumber.vue'
 
         this.loading = true
 
-        $.ajax({
-          url: this.urlObject.href,
-          method: "GET",
-          dataType: "json",
-          success: (data) => {
+        this.$axios.get(this.urlObject.href)
+          .then(response => {
+            const data = response.data
+
             this.getData = data.data
             this.loading = false
-          }
-        })
+          })
       },
       
       filterUpdate(filter) {
@@ -395,15 +393,14 @@ import PersonalNumber from './PersonalNumber.vue'
         this.urlObject.searchParams.set('page[number]', 1)
         this.loading = true
 
-         $.ajax({
-          url: this.urlObject.href,
-          method: "GET",
-          dataType: "json",
-          success: (data) => {
+        this.$axios.get(this.urlObject.href)
+          .then(response => {
+            const data = response.data
+
             this.getData = data.data
             this.loading = false
-          }
-        })
+          })
+
       },
       searchAgain(id, url) {
         this.$router.push(url)

@@ -28,6 +28,8 @@ export default {
     '~plugins/vue-debounce.js',
     '~plugins/v-click-outside.js',
     '~plugins/properties.js',
+    '~plugins/v-tooltip.js',
+    {src: '~plugins/vue-datepicker.js', ssr: false},
     {src: '~plugins/sticky-sidebar.js', ssr: false}
   ],
 

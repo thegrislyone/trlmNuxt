@@ -109,7 +109,7 @@
 
 <script>
 
-    import { debounce } from 'vue-debounce'
+  import { debounce } from 'vue-debounce'
    
   export default {
     components: {
