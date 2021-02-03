@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!isResetPassword && !$store.getters.isAuthorized" key="sign-in">
+  <div v-if="!isResetPassword && !$store.getters['auth/isAuthorized']" key="sign-in">
     <h2>Вход на сайт</h2>
     <div
       v-if="modalMessage"
@@ -109,7 +109,7 @@
     </n-link>
   </div>
   <!-- authorized -->
-  <div v-else-if="$store.getters.isAuthorized" key="authorized">
+  <div v-else-if="$store.getters['auth/isAuthorized']" key="authorized">
     <h2>Войти</h2>
     <p>Вы успешно авторизовались</p>
     <n-link
@@ -306,7 +306,7 @@
 
             } else {
 
-              this.$store.commit('setAuthorization', true)
+              this.$store.commit('auth/setAuthorization', true)
 
               this.getCart()
 
