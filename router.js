@@ -1,11 +1,29 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import store from '../store'
+// import { metricHit } from '../properties'
 
 /*
   !: pages
 */
 import Index from '~/pages/Index.vue'
 import Registration from '~/pages/Registration.vue'
+import Personal from '~/pages/Personal.vue'
+
+
+// import Category from '../views/Category.vue'
+// import CategoryItem from '../views/CategoryItem.vue'
+// import Offers from '../views/Offers.vue'
+// import Search from '../views/Search.vue'
+// import Cart from '../views/Cart.vue'
+// import Checkout from '../views/Checkout.vue'
+import PersonalContent from '~/components/PersonalContent.vue'
+// import EventsList from '../views/EventsList.vue'
+// import EventsItem from '../views/EventsItem.vue'
+// import Contact from '../views/Contact.vue'
+// import SimplePage from '../views/SimplePage.vue'
+// import VINRequest from '../views/VINRequest.vue'
+// import PasswordRecovery from '../views/PasswordRecovery.vue'
 
 
 Vue.use(Router)
@@ -106,40 +124,40 @@ const routes = [
   //   component: Checkout,
   //   props: true
   // },
-  // {
-  //   path: '/personal',
-  //   name: 'personal',
-  //   meta: { requiresAuth: true },
-  //   component: Personal
-  // },
-  // {
-  //   path: '/personal/:section',
-  //   name: 'personal',
-  //   meta: { requiresAuth: true },
-  //   component: Personal,
-  //   children: [
-  //     {
-  //       path: '',
-  //       name: 'personal',
-  //       props: true,
-  //       component: PersonalContent
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/personal/:section/:page',
-  //   name: 'personal',
-  //   meta: { requiresAuth: true },
-  //   component: Personal,
-  //   children: [
-  //     {
-  //       path: '',
-  //       name: 'personal',
-  //       props: true,
-  //       component: PersonalContent
-  //     }
-  //   ]
-  // },
+  {
+    path: '/personal',
+    name: 'personal',
+    meta: { requiresAuth: true },
+    component: Personal
+  },
+  {
+    path: '/personal/:section',
+    name: 'personal',
+    meta: { requiresAuth: true },
+    component: Personal,
+    children: [
+      {
+        path: '',
+        name: 'personal',
+        props: true,
+        component: PersonalContent
+      }
+    ]
+  },
+  {
+    path: '/personal/:section/:page',
+    name: 'personal',
+    meta: { requiresAuth: true },
+    component: Personal,
+    children: [
+      {
+        path: '',
+        name: 'personal',
+        props: true,
+        component: PersonalContent
+      }
+    ]
+  },
   // {
   //   path: '/event-*',
   //   component: EventsItem

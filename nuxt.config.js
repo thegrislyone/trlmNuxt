@@ -28,6 +28,7 @@ export default {
     '~plugins/vue-debounce.js',
     '~plugins/v-click-outside.js',
     '~plugins/properties.js',
+    {src: '~plugins/sticky-sidebar.js', ssr: false}
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
