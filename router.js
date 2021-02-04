@@ -6,6 +6,7 @@ import Router from 'vue-router'
 */
 import Index from '~/pages/Index.vue'
 import Registration from '~/pages/Registration.vue'
+import Cart from '~/pages/Cart.vue'
 
 
 Vue.use(Router)
@@ -89,11 +90,11 @@ const routes = [
   //   path: '/public/search-result*',
   //   component: Search
   // },
-  // {
-  //   path: '/cart',
-  //   name: 'cart',
-  //   component: Cart
-  // },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: Cart
+  },
   {
     path: '/registration',
     name: 'registration',
