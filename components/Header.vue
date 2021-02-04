@@ -46,7 +46,7 @@
 
           <!-- sign-in -->
           <button
-            v-if="!$store.getters.isAuthorized"
+            v-if="!$store.getters['auth/isAuthorized']"
             class="profile-links__item"
             type="button"
             @click="showSignInModal()"
