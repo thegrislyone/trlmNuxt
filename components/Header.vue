@@ -222,7 +222,7 @@
         menu: null,
 
         // sign-in data
-        signInMessage: '',
+        // signInMessage: '',
         authorizationProcess: false,
 
         // Cart
@@ -241,6 +241,14 @@
       }
     },
     computed: {
+      signInMessage: {
+        get() {
+          return this.$store.getters['auth/signInMessage']
+        },
+        set(value) {
+          this.$store.commit('auth/setSignInMessage', value)
+        }
+      },
       windowWidth() {
         return this.$store.getters['resize/windowWidth']
       }
@@ -310,9 +318,8 @@
 
         // $('.dropdown-catalog-menu').outerWidth( $(window).width() )
       },
-      showSignInModal(message = '') {
-        this.signInMessage = message
-        this.$modal.show('sign-in')
+      showSignInModal() {
+        this.$store.dispatch('auth/showSignInModal', {vm: this})
       },     
       signInModalBeforeClose() {
         this.signInMessage = ''

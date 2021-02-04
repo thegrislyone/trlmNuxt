@@ -45,7 +45,7 @@ export const actions = {
       })
 
   },
-  async updateQuantity({commit, dispatch}, id, quantity) {
+  async updateQuantity({commit, dispatch}, {id, quantity}) {
     
     commit('loadingStatusChange', true)
 
