@@ -377,8 +377,6 @@
     },
     created() {
 
-      console.log(this.officeIs, 'officeIs')
-
       const cartDate = new Date()
 
       const cartDay = (String(cartDate.getDate()).length == 1) ? ('0' + String(cartDate.getDate())) : String(cartDate.getDate())
@@ -418,6 +416,7 @@
 
       },
       pickAnother() {
+        // Todo : разобраться с поппером 
         this.$root.showPopper()
         $('html, body').animate({
           scrollTop: 0
@@ -428,7 +427,8 @@
         this.$metricGoal('order_start')
         
         if (!this.isAuthorized) {
-          this.$root.authorizationForCheckout()
+          this.$store.dispatch('auth/authorizationForCheckout', this)
+          // this.authorizationForCheckout()
         } else {
           this.$router.push({
             name: 'checkout',
