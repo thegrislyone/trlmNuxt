@@ -47,7 +47,7 @@
 							>
 								<span>{{ item.caption }}</span>
 								<img 
-									src="/trlm/images/i-close-small.svg"
+									src="../static/images/i-close-small.svg"
 									alt="" 
 									class="multiselect__choosen-close"
 									@click="remove(index)"
@@ -60,7 +60,7 @@
 			</div>
 		 
 			<img 
-				src="/trlm/images/i-arrow-small.svg" 
+				src="../static/images/i-arrow-small.svg" 
 				alt="" 
 				class="multiselect__arrow"
 				:class="{'crud__sort-arrow_rotated': isOpen}"
@@ -75,7 +75,7 @@
 				>
 					<span>{{ item.caption }}</span>
 					<img 
-						src="/trlm/images/i-close-small.svg"
+						src="../static/images/i-close-small.svg"
 						alt="" 
 						class="multiselect__choosen-close"
 						@click="remove(index)"

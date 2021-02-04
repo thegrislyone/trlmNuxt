@@ -570,8 +570,27 @@ import { debounce } from 'vue-debounce'
           const method = buttonObject.method
           const url = localUrl
 
-          this.formData = {"blocks":[{"columns":2,"grid":[{"component":"text","data":{"name":"name","hidden":false,"error":false,"error_text":null,"required":false,"label":"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435","value":null,"placeholder":null,"description":null,"min_length":null,"max_length":null,"api_url":""}},{"component":"select","data":{"name":"group_stock_id","error":false,"error_text":null,"label":"\u0413\u0440\u0443\u043f\u043f\u0430 \u0442\u043e\u0432\u0430\u0440\u043e\u0432","description":null,"options":[{"caption":"\u0422-\u0421","value":1,"selected":false},{"caption":"Valvoline","value":2,"selected":false},{"caption":"Felix","value":3,"selected":false},{"caption":"\u041d\u0430\u0448\u0438 \u0442\u043e\u0432\u0430\u0440\u044b","value":4,"selected":false}],"min_count":0,"max_count":1,"api_url":"","update_component":false,"update_url":""}},{"component":"number","data":{"name":"spread","error":false,"error_text":null,"required":false,"label":"\u0420\u0430\u0437\u043d\u0438\u0446\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c %","value":"0","placeholder":null,"description":null,"min":0.1,"max":null,"before":2,"after":1}},{"component":"number","data":{"name":"discount","error":false,"error_text":null,"required":false,"label":"+ \u0441\u043a\u0438\u0434\u043a\u0430 %","value":"0","placeholder":null,"description":null,"min":-9.9,"max":null,"before":2,"after":1}}]},{"columns":1,"grid":[{"component":"buttons","data":{"left":[],"right":[{"url":null,"method":"POST","action":"\/api\/form-v2\/rule-controll-price","caption":"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c","icon":"","class":""}]}}]}]}
-          this.$modal.show('universal-form')
+          // this.formData = {"blocks":[{"columns":2,"grid":[{"component":"text","data":{"name":"name","hidden":false,"error":false,"error_text":null,"required":false,"label":"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435","value":null,"placeholder":null,"description":null,"min_length":null,"max_length":null,"api_url":""}},{"component":"select","data":{"name":"group_stock_id","error":false,"error_text":null,"label":"\u0413\u0440\u0443\u043f\u043f\u0430 \u0442\u043e\u0432\u0430\u0440\u043e\u0432","description":null,"options":[{"caption":"\u0422-\u0421","value":1,"selected":false},{"caption":"Valvoline","value":2,"selected":false},{"caption":"Felix","value":3,"selected":false},{"caption":"\u041d\u0430\u0448\u0438 \u0442\u043e\u0432\u0430\u0440\u044b","value":4,"selected":false}],"min_count":0,"max_count":1,"api_url":"","update_component":false,"update_url":""}},{"component":"number","data":{"name":"spread","error":false,"error_text":null,"required":false,"label":"\u0420\u0430\u0437\u043d\u0438\u0446\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c %","value":"0","placeholder":null,"description":null,"min":0.1,"max":null,"before":2,"after":1}},{"component":"number","data":{"name":"discount","error":false,"error_text":null,"required":false,"label":"+ \u0441\u043a\u0438\u0434\u043a\u0430 %","value":"0","placeholder":null,"description":null,"min":-9.9,"max":null,"before":2,"after":1}}]},{"columns":1,"grid":[{"component":"buttons","data":{"left":[],"right":[{"url":null,"method":"POST","action":"\/api\/form-v2\/rule-controll-price","caption":"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c","icon":"","class":""}]}}]}]}
+          // this.formData.blocks.push({
+          //   columns: 1,
+          //   grid: [
+          //     {
+          //       component: 'coordinates',
+          //       data: {
+          //         name: 'name',
+          //         error: true,
+          //         error_text: "Текст ошибки",
+          //         required: true,
+          //         label: "Координаты",
+          //         description: "Описание поля епта",
+          //         latitude: "54.512",
+          //         longitude: "61.512"
+          //       }
+          //     }
+          //   ]
+          // })
+          // this.$modal.show('universal-form')
+          // return
 
 
           this.$axios({method, url})

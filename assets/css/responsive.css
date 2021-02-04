@@ -2,7 +2,7 @@
   # MIN-WIDTH: 640px
 \*------------------------------------*/
 
-@media (min-width: 640px) {
+ 	@media (min-width: 640px) {
 	/* Modal */
 	.modal {
 		padding: 30px;
@@ -703,15 +703,16 @@
 	.un-form__blocks_columns_two,
 	.un-form-radio__columns_two {
 		grid-template-columns: 50% 50%;
+		grid-column-gap: 1em;
 	}
 	.un-form__blocks_columns_two
 	.un-form__block-item {
 		width: calc(100% - 15px);
 	}
-	.un-form__blocks_columns_two
-	.un-form__block-item:nth-child(even) {
+	/* .un-form__blocks_columns_two
+	.un-form__block-item_visible:nth-child(even) {
 		margin-left: auto;
-	}
+	} */
 	.crud__add-overlay {
 		padding: 20px;
 	}
@@ -2410,6 +2411,42 @@
 		order: 1;
 		width: 100%;
 	}
+
+	/* postpone */
+
+	.postpone {
+		position: absolute;
+		width: 470px;
+		background: #fff;
+		z-index: 5;
+		padding: 20px;
+    top: -20px;
+    left: -20px;
+		box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+	}
+	.postpone__top {
+		display: flex;
+		justify-content: space-between;
+	}
+	.postpone__close-img img {
+		margin: 3px 0;
+		cursor: pointer;
+	}
+	.postpone__text p {
+		margin-bottom: 20px;
+	}
+	.postpone__input {
+		margin-bottom: 12px;
+	}
+	.postpone__buttons {
+		gap: 15px;
+    display: flex;
+    justify-content: space-between;
+	}
+	.postpone__buttons button {
+		flex-grow: 1;
+	}
+
 	.cart-office__message {
 		max-width: 460px;
 	}

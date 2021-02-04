@@ -381,25 +381,26 @@ import PersonalText from './PersonalText.vue'
 
 				// this.getData = {"search":false,"page":{"current_page":1,"last_page":1,"per_page":20,"from":1,"to":1},"thead":[{"key":"name","caption":"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435","sort":false},{"key":"spread","caption":"\u0420\u0430\u0437\u043d\u0438\u0446\u0430 \u043c\u0430\u043a\u0441\u0438\u043c\u0443\u043c %","sort":false},{"key":"discount","caption":"+ \u0441\u043a\u0438\u0434\u043a\u0430 %","sort":false}],"filter":[],"row":[{"id":1,"name":"\u041c\u043e\u0435 Felix \u043f\u0440\u0430\u0432\u0438\u043b\u043e","spread":"19.9","discount":"0.1"}],"buttons":{"top":[{"url":null,"method":"GET","action":"\/api\/form-v2\/rule-controll-price\/create","caption":"\u0421\u043e\u0437\u0434\u0430\u0442\u044c","icon":""}],"last_column":[{"url":null,"method":"GET","action":"\/api\/form-v2\/rule-controll-price\/{id}\/edit","caption":"\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c","icon":"\/trlm\/images\/i-pen-tool.svg"},{"url":null,"method":"DELETE","action":"\/api\/form-v2\/rule-controll-price\/{id}","caption":"\u0423\u0434\u0430\u043b\u0438\u0442\u044c","icon":"\/trlm\/images\/i-trash-bin_red.svg"}]},"alerts":null}
 				// this.loading = false
+				// return
 				this.$axios.get(this.url)
-						.then(response => {
-								const data = response.data
+					.then(response => {
+							const data = response.data
 
-								if (!this.$is_empty(data.errors)) {
-									this.errors = data.errors
-									this.messageShow = true
-								}
+							if (!this.$is_empty(data.errors)) {
+								this.errors = data.errors
+								this.messageShow = true
+							}
 
-								this.getData = data
+							this.getData = data
 
-								if (this.activeSubmenu == 'change-password') {
-									for (let key in this.getData.form.main) this.postObject[key] = ""
-								} else if (this.activeMenu == 'profile' && !this.activeSubmenu && this.getData.form) {
-									for (let key in this.getData.form.main) this.postObject[key] = this.getData.form.main[key].value
-								}
-								this.loading = false
-								this.loadingChange()
-						})
+							if (this.activeSubmenu == 'change-password') {
+								for (let key in this.getData.form.main) this.postObject[key] = ""
+							} else if (this.activeMenu == 'profile' && !this.activeSubmenu && this.getData.form) {
+								for (let key in this.getData.form.main) this.postObject[key] = this.getData.form.main[key].value
+							}
+							this.loading = false
+							this.loadingChange()
+					})
 
 			},
 			changePickpoint() {
@@ -421,13 +422,13 @@ import PersonalText from './PersonalText.vue'
 				this.errors = []
 				this.profileLoading = true
 
-                this.alertsShow = false
+				this.alertsShow = false
                 
-                this.$axios.post(this.url, this.postObject)
-                    .then(response => {
-                        const data = response.data
+				this.$axios.post(this.url, this.postObject)
+					.then(response => {
+						const data = response.data
 
-                        this.profileLoading = false
+						this.profileLoading = false
 						if (!this.$is_empty(data.form)) {
 							this.getData = data
 						}
@@ -441,7 +442,7 @@ import PersonalText from './PersonalText.vue'
 						if (data.alerts) {
 							this.alertsShow = true
 						}
-                    })
+					})
 
 			},
 			passwordInput(key, value) {

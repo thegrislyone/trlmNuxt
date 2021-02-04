@@ -1137,6 +1137,9 @@ div[class*="message_i-"] {
 
 
 /* Cart widget */
+.cart-message {
+	margin-top: 15px;
+}
 .cart-widget {
 	position: fixed;
 	top: 0;
@@ -3066,12 +3069,12 @@ input.filter-group__range-to {
 .sipplier-btn {
 
 }
-.supplier-btn svg {
+/* .supplier-btn svg {
 	fill: #222222;
 }
 .supplier-btn_official svg {
 	fill: #3CA255;
-}
+} */
 .supplier-popover {
 	display: none;
 	min-width: 280px;
@@ -3203,10 +3206,9 @@ input.filter-group__range-to {
 	height: 40px;
 	color: #1C69D4;
 }
-.offer-table__more svg {
+.offer-table__more img {
 	margin-top: 2px;
 	margin-left: 8px;
-	fill: #1C69D4;
 }
 
 /* cart page */
@@ -3509,7 +3511,6 @@ input.filter-group__range-to {
 	height: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 .personal_menu-opened
 .navbar__item:not(:first-child) {
@@ -4086,7 +4087,7 @@ input.filter-group__range-to {
 		border: 1px solid #222222 !important;
 		padding: 12px 15px !important;
 		display: flex !important;
-		align-items: center !important;
+    	align-items: center !important;
 	}
 	.asd__change-month-button > button:hover {
 		border: 1px solid #222 !important;
@@ -4294,7 +4295,7 @@ input.filter-group__range-to {
 .crud__no-results {
 	text-align: center;
 }
-.crud__tools-cell * {
+.crud__button {
 	cursor: pointer;
 }
 .crud__action_block {
@@ -4486,6 +4487,44 @@ input.filter-group__range-to {
 }
 .un-form-coordinates__input {
 	width: calc(50% - 15px);
+}
+
+/* repeater */
+
+	/* repeater add button */
+
+.repeater__add-button {
+	background: url('/images/i-plus_repeater.svg') no-repeat left center;
+	display: inline-block;
+	padding: 5px 5px 5px 25px;
+	margin: 15px 0 10px 0;
+	color: #1C69D4;
+	cursor: pointer;
+}
+.repeater__add-text {
+	border-bottom: 1px solid #1C69D4;
+}
+
+	/* repeater delete block */
+
+.un-form__delete-block {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.un-form__delete-block::before {
+	content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: #E6E6E6;
+    margin-right: 10px;
+}
+.un-form__delete-button {
+	padding-left: 15px;
+	font-size: 12px;
+	background: url('/images/i-close-small-red_repeater.svg') no-repeat left center;
+	color: #FF4400;
+	cursor: pointer;
 }
 
 /* files */
