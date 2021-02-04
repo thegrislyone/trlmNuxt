@@ -12,6 +12,12 @@ export default {
     ]
   },
 
+  // router
+
+  router: {
+    middleware: 'pickpoints'
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     { src: '~assets/css/main.css' },
@@ -45,6 +51,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
+
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {

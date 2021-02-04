@@ -85,45 +85,45 @@
     },
     created () {
 
-		this.sliderLoading = false
-		this.opportunitiesLoading = true
-		this.eventsLoading = true
+			this.sliderLoading = false
+			this.opportunitiesLoading = true
+			this.eventsLoading = true
 
 
-		this.$axios.get('https://general.dbtrlm.ru/api/main/slider')
-			.then(response => {
-				const data = response.data
+			this.$axios.get('https://general.dbtrlm.ru/api/main/slider')
+				.then(response => {
+					const data = response.data
 
-				this.sliderData = data.data || []
-				this.sliderLoading = false
-			})
-			.catch(error => {
-				console.log(error, "error")
-			})
+					this.sliderData = data.data || []
+					this.sliderLoading = false
+				})
+				.catch(error => {
+					console.log(error, "error")
+				})
 
-		this.$axios.get('https://general.dbtrlm.ru/api/main/slider-block')
-			.then(response => {
-				const data = response.data
+			this.$axios.get('https://general.dbtrlm.ru/api/main/slider-block')
+				.then(response => {
+					const data = response.data
 
-				this.opportunities = data.data || []
-				this.opportunitiesLoading = false
-			})
-			.catch(error => {
-				console.log(error)
-			})
+					this.opportunities = data.data || []
+					this.opportunitiesLoading = false
+				})
+				.catch(error => {
+					console.log(error)
+				})
 
 
-		this.$axios.get('https://general.dbtrlm.ru/api/general/public/event')
-			.then(response => {
-				const data = response.data
+			this.$axios.get('https://general.dbtrlm.ru/api/general/public/event')
+				.then(response => {
+					const data = response.data
 
-				this.events = data.data || []
-				this.eventsLoading = false
-			})
-			.catch(error => {
-				console.log(error)
-			})
-    }
+					this.events = data.data || []
+					this.eventsLoading = false
+				})
+				.catch(error => {
+					console.log(error)
+				})
+		}
   }
 </script>
 
