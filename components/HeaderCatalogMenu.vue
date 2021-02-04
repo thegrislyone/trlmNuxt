@@ -127,7 +127,7 @@ import { computeStyles } from '@popperjs/core'
         return this.catalogMenu.data.filter( item => item.attributes.type === 'block') 
       },
       windowWidth() {
-        return this.$store.state.resize.windowWidth
+        return this.$store.getters['resize/windowWidth']
       }
     },
     watch: {
