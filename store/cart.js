@@ -13,7 +13,7 @@ export const getters = {
 }
 
 export const actions = {
-  async getCart({commit, dispatch}, {vm, item}) {
+  async getCart({commit}, {vm, item}) {
 
     commit('loadingStatusChange', true)
 

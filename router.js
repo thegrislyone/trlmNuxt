@@ -8,6 +8,7 @@ import Index from '~/pages/Index.vue'
 import Registration from '~/pages/Registration.vue'
 import Cart from '~/pages/Cart.vue'
 import Category from '~/pages/Category.vue'
+import Offers from '~/pages/Offers.vue'
 
 
 Vue.use(Router)
@@ -75,14 +76,14 @@ const routes = [
   //   path: '/public/product*',
   //   component: CategoryItem
   // },
-  // {
-  //   path: '/offers',
-  //   component: Offers
-  // },
-  // {
-  //   path: '/public/offers',
-  //   component: Offers
-  // },
+  {
+    path: '/offers',
+    component: Offers
+  },
+  {
+    path: '/public/offers',
+    component: Offers
+  },
   // {
   //   path: '/search-result*',
   //   component: Search
