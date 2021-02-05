@@ -1,6 +1,6 @@
 <template>
   <button
-    v-if="$store.getters.isAuthorized"
+    v-if="$store.getters['auth/isAuthorized']"
     class="favorite-btn row"
     type="button"
     @click="$emit('favorite-click')"

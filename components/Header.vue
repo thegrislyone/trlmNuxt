@@ -264,6 +264,14 @@
         this.$store.commit('resize/setWindowWidth', window.innerWidth)
         this.$store.commit('resize/setWindowHeight', window.innerHeight)
 
+        if ( window.innerWidth >= 960 ) {
+          this.$store.commit('dom/setIsDesctopSidebar', true)
+          // this.isDesctopSidebar = true
+        } else {
+          this.$store.commit('dom/setIsDesctopSidebar', false)
+          // this.isDesctopSidebar = false
+        }
+
         if ( this.windowWidth >= 640 ) {
 
           if ( !document.querySelector('.header__bottomline > .catalog-dropdown') ) {

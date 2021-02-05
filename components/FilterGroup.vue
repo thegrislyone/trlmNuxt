@@ -49,7 +49,7 @@
                 filterParameters.attributes.type_filter === 'autocomplete_select'
             "
             v-model="multiselect" 
-            v-tooltip="(!$empty(filterParameters.attributes.tooltip) && $empty(autocompleteValue)) && filterParameters.attributes.tooltip"
+            v-tooltip="(!$is_empty(filterParameters.attributes.tooltip) && $is_empty(autocompleteValue)) && filterParameters.attributes.tooltip"
             :options="multiselectParametersList" 
             :multiple="true"
             :close-on-select="false"
@@ -123,9 +123,9 @@
             },
             visibleParameters() {
                 if (this.parametersListFromApi !== null) {
-                    return this.parametersListFromApi.filter( item => (item.visibility === undefined || !this.$empty(item.visibility)))  
+                    return this.parametersListFromApi.filter( item => (item.visibility === undefined || !this.$is_empty(item.visibility)))  
                 }
-                return this.parameters.filter( item => (!this.$empty(item.visibility)))
+                return this.parameters.filter( item => (!this.$is_empty(item.visibility)))
             },
             parametersList() {
 
@@ -157,7 +157,8 @@
             },
             search: {
                 get() {
-                    return this.$store.getters.getSearchValue(this.filterParameters.id) || ''
+                    return this.$store.getters['common/getSearchValue'](this.filterParameters.id) || ''
+                    // return this.$store.getters.getSearchValue(this.filterParameters.id) || ''
                 },
                 set(value) {
                     this.searchValue = [value]
@@ -166,7 +167,8 @@
             },
             multiselect: {
                 get() {
-                    return this.$store.getters.getCheckedValuesById(this.filterParameters.id) || []
+                    return this.$store.getters['common/getCheckedValuesById'](this.filterParameters.id) || []
+                    // return this.$store.getters.getCheckedValuesById(this.filterParameters.id) || []
                 },
                 set(value) {
                     this.checkedValues = value.map(item => item.id)
@@ -175,10 +177,11 @@
             },
             checkedValues: {
                 get() {
-                    return this.$store.getters.getCheckedValuesById(this.filterParameters.id).map(item => item.id) || []
+                  return this.$store.getters['common/getCheckedValuesById'](this.filterParameters.id).map(item => item.id) || []
+                    // return this.$store.getters.getCheckedValuesById(this.filterParameters.id).map(item => item.id) || []
                 },
                 set(value) {
-                    this.$store.commit('setFilterCheckedValues', {
+                    this.$store.commit('common/setFilterCheckedValues', {
                         id: this.filterParameters.attributes.id,
                         value: value
                     })
@@ -189,7 +192,7 @@
             updateData(ref) {
                 if (this.filterType === 'offers') {
 
-                    this.$store.commit('updateOffersAppliedFilterValues')
+                    this.$store.commit('common/updateOffersAppliedFilterValues')
                     this.$emit('update-filter-data', this.filterParameters.id !== 0)
 
                 } else {
@@ -227,16 +230,14 @@
                 url.pathname = this.filterParameters.attributes.autocomplete_url
                 url.searchParams.set('search', value)
 
-                $.ajax({
-                    url: url,
-                    method: 'GET',
-                    dataType: 'json',
-                    success: (data) => {
-                        if (Array.isArray(data)) {
-                            this.parametersListFromApi = data
-                        }
+                this.$axios.get(url)
+                  .then(response => {
+                    const data = response.data
+
+                    if (Array.isArray(data)) {
+                        this.parametersListFromApi = data
                     }
-                })
+                  })
                 
             }
         },

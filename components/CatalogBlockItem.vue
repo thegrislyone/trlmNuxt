@@ -98,20 +98,19 @@
 
 				if (this.itemData.attributes.favorit_id > 0) {
 
-					$.ajax({
-						url: '/api/favorit-delete/' + this.itemData.attributes.favorit_id,
-						type: 'DELETE',
-						dataType: 'json',
-						success: data => {
-							console.log('delete', data)
+          this.$axios.delete('/api/favorit-delete/' + this.itemData.attributes.favorit_id)
+            .then(response => {
+              const data = response.data
+
+              console.log('delete', data)
 							this.itemData.attributes.favorit_id = data
+              this.favoriteLoading = false
+              
+            })
+            .catch(error => {
+              console.log(error)
 							this.favoriteLoading = false
-						},
-						error: data => {
-							console.log(data.responseText)
-							this.favoriteLoading = false
-						}
-					})
+            })
 
 				} else {
 
@@ -119,23 +118,21 @@
 						article: this.itemData.attributes.article,
 						brand: this.itemData.attributes.brand_name,
 						name: this.itemData.attributes.name
-					}
+          }
+          
+          this.$axios.post('/api/favorit-add', request)
+            .then(response => {
+              const data = response.data
 
-					$.ajax({
-						url: '/api/favorit-add',
-						method: 'POST',
-						dataType: 'json',
-						data: request,
-						success: (data) => {
-							console.log('favorit-add', data)
+              console.log('favorit-add', data)
 							this.itemData.attributes.favorit_id = data
+              this.favoriteLoading = false
+              
+            })
+            .catch(error => {
+              console.log(error)
 							this.favoriteLoading = false
-						},
-						error: (data) => {
-							console.log(data.responseText)
-							this.favoriteLoading = false
-						}
-					})
+            })
 
 				}
 

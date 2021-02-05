@@ -11,15 +11,15 @@
     <div class="main-container">
       <transition name="sidebar">
         <aside
-          v-show="$root.isSidebarActive || $root.isDesctopSidebar"
+          v-show="$store.getters['dom/isSidebarActive'] || $store.getters['dom/isDesctopSidebar']"
           class="sidebar"
         >
           <i
-            v-if="$root.windowWidth < 960"
+            v-if="windowWidth < 960"
             class="sidebar__close close-btn"
-            @click="$root.isSidebarActive = false"
+            @click="$store.commit('dom/setIsSidebarActive', false)"
           ></i>
-          <h2 v-if="$root.windowWidth < 960">Фильтр</h2>
+          <h2 v-if="windowWidth < 960">Фильтр</h2>
           <div class="filter-wrapper">
             
             <sticky-loader v-if="filterLoading" />
@@ -69,9 +69,9 @@
       </transition>
       <transition name="fader">
         <div
-          v-if="$root.isSidebarActive && $root.windowWidth < 960"
+          v-if="$store.getters['dom/isSidebarActive'] && windowWidth < 960"
           class="overlay"
-          @click="$root.isSidebarActive = false"
+          @click="$store.commit('dom/setIsSidebarActive', false)"
         ></div>
       </transition>
       <div class="main-content">
@@ -79,9 +79,9 @@
         <sticky-loader v-if="catalogLoading" />
 
         <div
-          v-show="$root.windowWidth < 960"
+          v-show="windowWidth < 960"
           class="filter-btn btn"
-          @click="$root.isSidebarActive = true"
+          @click="$store.commit('dom/setIsSidebarActive', true)"
         >
           <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11 2H20V4H11V2ZM0 4H7V6H9V0H7V2H0V4ZM7 14H20V16H7V14ZM17 8H20V10H17V8ZM15 12V6.012H13V8H0V10H13V12H15ZM5 18V12H3V14H0V16H3V18H5Z" fill="white"/>
@@ -147,7 +147,7 @@
             </transition>
           </div>
           <div
-            v-if="$root.windowWidth >= 1280"
+            v-if="windowWidth >= 1280"
             class="view-options row"
           >
             <button
@@ -164,7 +164,7 @@
         </div>
         <div
           class="product-list"
-          :class="{ 'product-list_grid' : isListView && $root.windowWidth >= 1280 }"
+          :class="{ 'product-list_grid' : isListView && windowWidth >= 1280 }"
         >
           <template v-if="true/*blocksList.length*/">
             <catalog-block
@@ -182,7 +182,7 @@
           <div
             v-if="showMoreButton"
             class="product-list__showmore btn"
-            :class="{ 'btn_border' : $root.windowWidth >= 1280 }"
+            :class="{ 'btn_border' : windowWidth >= 1280 }"
             @click="loadMore"
           >
             <div
@@ -199,7 +199,7 @@
           :paginate-data="paginateData"
           :selected-page="selectedPage"
           :click-handler="goToPage"
-          :page-range="$root.windowWidth < 640 ? 3 : 5"
+          :page-range="windowWidth < 640 ? 3 : 5"
         ></paginate>
       </div>
     </div>
@@ -257,6 +257,9 @@ export default {
     }
   },
   computed: {
+    windowWidth() {
+      return this.$store.getters['resize/windowWidth']
+    },
     goodsDiff() {
   		return this.goodsCount - this.catalogCounter.length
     },
@@ -393,7 +396,7 @@ export default {
           this.catalogLoading = false
         })
 
-      this.$_ajaxAbort_pushRequest($request)
+      // this.$_ajaxAbort_pushRequest($request)
 
     },
     setPageUrl() {
@@ -401,7 +404,7 @@ export default {
       const url = this.getUrl(this.selectedPage)
       history.pushState(null, null, url)
 
-      this.$metricHit(url)
+      // this.$metricHit(url)
       
     },
     getUrl(page) {
@@ -512,7 +515,7 @@ export default {
           this.loading = false
         })
 
-      this.$_ajaxAbort_pushRequest($request)
+      // this.$_ajaxAbort_pushRequest($request)
       
     },
     goToPage(page) {
@@ -540,7 +543,8 @@ export default {
     },
     applyMobileFilter() {
       this.applyFilter()
-      this.$root.isSidebarActive = false
+      this.$store.commit('dom/setIsSidebarActive', false)
+      // this.$root.isSidebarActive = false
     },
     deleteCheckedValue(item) {
       this.$store.commit('common/deleteFilterCheckedValue', item)
@@ -622,7 +626,7 @@ export default {
           this.catalogLoading = false
         })
 
-      this.$_ajaxAbort_pushRequest($request)
+      // this.$_ajaxAbort_pushRequest($request)
 
       $('html, body').animate({
         scrollTop: $('.main-content').offset().top
@@ -684,7 +688,7 @@ export default {
       this.$store.commit('common/setCategoryData', data.data.attributes)
 
       if (data.data.relationships.sort) {
-        this.$store.commit('setSortingData', data.data.relationships.sort.data)
+        this.$store.commit('common/setSortingData', data.data.relationships.sort.data)
       }
       
       this.$store.commit('common/updateAppliedFilterValues', this)
@@ -771,7 +775,7 @@ export default {
 
         })
 
-      this.$_ajaxAbort_pushRequest($request)
+      // this.$_ajaxAbort_pushRequest($request)
 
     }
 
