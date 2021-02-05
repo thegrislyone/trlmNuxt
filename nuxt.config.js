@@ -34,6 +34,7 @@ export default {
     '~plugins/vue-debounce.js',
     '~plugins/v-click-outside.js',
     '~plugins/properties.js',
+    {src: '~plugins/vue-slider.js', ssr: false}
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

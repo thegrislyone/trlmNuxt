@@ -1,0 +1,38 @@
+<template>
+  <div class="breadcrumbs">
+    <div
+      v-for="(item, index) in breadcrumbs"
+      :key="index"
+      class="breadcrumbs__link-container row"
+    >
+      <router-link
+        :to="item.url"
+        class="breadcrumbs__link"
+      >
+        {{ item.name }}
+      </router-link>
+      <i v-if="index < breadcrumbs.length - 1" class="breadcrumbs__divider">
+        <svg width="7" height="5" viewBox="0 0 7 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 1.5V0.5H1V1.5H0Z" fill="#222222"/>
+          <path d="M2 2.5H1V1.5H2V2.5Z" fill="#222222"/>
+          <path d="M3 3.5H2V2.5H3V3.5Z" fill="#222222"/>
+          <path d="M4 3.5V4.5H3V3.5H4Z" fill="#222222"/>
+          <path d="M5 2.5V3.5H4V2.5H5Z" fill="#222222"/>
+          <path d="M6 1.5H5V2.5H6V1.5Z" fill="#222222"/>
+          <path d="M6 1.5H7V0.5H6V1.5Z" fill="#222222"/>
+        </svg>
+      </i>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      breadcrumbs: {
+        type: Array,
+        required: true
+      },
+    }
+  }
+</script>
