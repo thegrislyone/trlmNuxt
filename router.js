@@ -7,6 +7,7 @@ import Router from 'vue-router'
 import Index from '~/pages/Index.vue'
 import Registration from '~/pages/Registration.vue'
 import Cart from '~/pages/Cart.vue'
+import Category from '~/pages/Category.vue'
 
 
 Vue.use(Router)
@@ -17,49 +18,49 @@ const routes = [
     name: 'index',
     component: Index
   },
-  // {
-  //   path: '/category-*',
-  //   meta: { type: 'category' },
-  //   component: Category
-  // },
-  // {
-  //   path: '/public/category-*',
-  //   meta: { type: 'category' },
-  //   component: Category
-  // },
-  // {
-  //   path: '/tip-product-*',
-  //   name: 'attribute',
-  //   meta: { type: 'category' },
-  //   component: Category
-  // },
-  // {
-  //   path: '/public/tip-product-*',
-  //   name: 'attribute',
-  //   meta: { type: 'category' },
-  //   component: Category
-  // },
-  // {
-  //   path: '/brand-*',
-  //   name: 'brand',
-  //   meta: { type: 'category' },
-  //   component: Category
-  // },
-  // {
-  //   path: '/public/brand-*',
-  //   name: 'brand',
-  //   meta: { type: 'category' },
-  //   component: Category
-  // },
-  // {
-  //   path: '/product-group*',
-  //   name: 'favorite',
-  //   meta: {
-  //     type: 'category',
-  //     requiresAuth: true
-  //   },
-  //   component: Category
-  // },
+  {
+    path: '/category-*',
+    meta: { type: 'category' },
+    component: Category
+  },
+  {
+    path: '/public/category-*',
+    meta: { type: 'category' },
+    component: Category
+  },
+  {
+    path: '/tip-product-*',
+    name: 'attribute',
+    meta: { type: 'category' },
+    component: Category
+  },
+  {
+    path: '/public/tip-product-*',
+    name: 'attribute',
+    meta: { type: 'category' },
+    component: Category
+  },
+  {
+    path: '/brand-*',
+    name: 'brand',
+    meta: { type: 'category' },
+    component: Category
+  },
+  {
+    path: '/public/brand-*',
+    name: 'brand',
+    meta: { type: 'category' },
+    component: Category
+  },
+  {
+    path: '/product-group*',
+    name: 'favorite',
+    meta: {
+      type: 'category',
+      requiresAuth: true
+    },
+    component: Category
+  },
   // {
   //   path: '/product*',
   //   component: CategoryItem,

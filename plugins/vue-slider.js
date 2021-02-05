@@ -1,0 +1,1 @@
+import VueSlider from 'vue-slider-component'
