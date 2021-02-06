@@ -17,6 +17,7 @@ import PasswordRecovery from '~/pages/PasswordRecovery.vue'
 import Checkout from '~/pages/Checkout.vue'
 import PersonalContent from '~/components/PersonalContent.vue'
 import Personal from '~/pages/Personal.vue'
+import Contact from '~/pages/Contact.vue'
 
 
 Vue.use(Router)
@@ -159,10 +160,10 @@ const routes = [
   //   path: '/event*',
   //   component: EventsList
   // },
-  // {
-  //   path: '/contact',
-  //   component: Contact
-  // },
+  {
+    path: '/contact',
+    component: Contact
+  },
   {
     path: '/page-*',
     component: SimplePage
