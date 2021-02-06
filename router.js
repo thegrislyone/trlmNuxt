@@ -9,6 +9,7 @@ import Registration from '~/pages/Registration.vue'
 import Cart from '~/pages/Cart.vue'
 import Category from '~/pages/Category.vue'
 import SimplePage from '~/pages/SimplePage.vue'
+import CategoryItem from '~/pages/CategoryItem.vue'
 
 
 Vue.use(Router)
@@ -62,20 +63,20 @@ const routes = [
     },
     component: Category
   },
-  // {
-  //   path: '/product*',
-  //   component: CategoryItem,
-  //   beforeEnter: (to, from, next) => {
-  //     if ('type' in from.meta && from.meta.type === 'category') {
-  //       store.commit('setPreviousRoute', window.location.pathname)
-  //     }
-  //     next()
-  //   }
-  // },
-  // {
-  //   path: '/public/product*',
-  //   component: CategoryItem
-  // },
+  {
+    path: '/product*',
+    component: CategoryItem,
+    // beforeEnter: (to, from, next) => {
+    //   if ('type' in from.meta && from.meta.type === 'category') {
+    //     store.commit('setPreviousRoute', window.location.pathname)
+    //   }
+    //   next()
+    // }
+  },
+  {
+    path: '/public/product*',
+    component: CategoryItem
+  },
   // {
   //   path: '/offers',
   //   component: Offers
