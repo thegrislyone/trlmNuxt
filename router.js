@@ -18,7 +18,8 @@ import Checkout from '~/pages/Checkout.vue'
 import PersonalContent from '~/components/PersonalContent.vue'
 import Personal from '~/pages/Personal.vue'
 import Contact from '~/pages/Contact.vue'
-
+import EventsItem from '~/pages/EventsItem.vue'
+import EventsList from '~/pages/EventsList.vue'
 
 Vue.use(Router)
 
@@ -152,14 +153,14 @@ const routes = [
       }
     ]
   },
-  // {
-  //   path: '/event-*',
-  //   component: EventsItem
-  // },
-  // {
-  //   path: '/event*',
-  //   component: EventsList
-  // },
+  {
+    path: '/event-*',
+    component: EventsItem
+  },
+  {
+    path: '/event*',
+    component: EventsList
+  },
   {
     path: '/contact',
     component: Contact
