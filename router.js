@@ -12,7 +12,7 @@ import SimplePage from '~/pages/SimplePage.vue'
 import CategoryItem from '~/pages/CategoryItem.vue'
 import VINRequest from '~/pages/VINRequest.vue'
 import PasswordRecovery from '~/pages/PasswordRecovery.vue'
-
+import Checkout from '~/pages/Checkout.vue'
 
 Vue.use(Router)
 
@@ -105,13 +105,13 @@ const routes = [
     name: 'registration',
     component: Registration
   },
-  // {
-  //   path: '/checkout',
-  //   name: 'checkout',
-  //   meta: { layout: 'alter', requiresAuth: true },
-  //   component: Checkout,
-  //   props: true
-  // },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    meta: { layout: 'alter', requiresAuth: true },
+    component: Checkout,
+    props: true
+  },
   // {
   //   path: '/personal',
   //   name: 'personal',
