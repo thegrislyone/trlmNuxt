@@ -8,6 +8,7 @@ import Index from '~/pages/Index.vue'
 import Registration from '~/pages/Registration.vue'
 import Cart from '~/pages/Cart.vue'
 import Category from '~/pages/Category.vue'
+import SimplePage from '~/pages/SimplePage.vue'
 
 
 Vue.use(Router)
@@ -154,10 +155,10 @@ const routes = [
   //   path: '/contact',
   //   component: Contact
   // },
-  // {
-  //   path: '/page-*',
-  //   component: SimplePage
-  // },
+  {
+    path: '/page-*',
+    component: SimplePage
+  },
   // {
   //   path: '/vin-request',
   //   component: VINRequest
