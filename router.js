@@ -10,6 +10,7 @@ import Cart from '~/pages/Cart.vue'
 import Category from '~/pages/Category.vue'
 import SimplePage from '~/pages/SimplePage.vue'
 import CategoryItem from '~/pages/CategoryItem.vue'
+import VINRequest from '~/pages/VINRequest.vue'
 
 
 Vue.use(Router)
@@ -160,10 +161,10 @@ const routes = [
     path: '/page-*',
     component: SimplePage
   },
-  // {
-  //   path: '/vin-request',
-  //   component: VINRequest
-  // },
+  {
+    path: '/vin-request',
+    component: VINRequest
+  },
   // {
   //   path: '/password-recovery/*',
   //   component: PasswordRecovery
