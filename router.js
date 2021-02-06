@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import store from '../store'
+// import { metricHit } from '../properties'
 
 /*
   !: pages
@@ -13,6 +15,9 @@ import CategoryItem from '~/pages/CategoryItem.vue'
 import VINRequest from '~/pages/VINRequest.vue'
 import PasswordRecovery from '~/pages/PasswordRecovery.vue'
 import Checkout from '~/pages/Checkout.vue'
+import PersonalContent from '~/components/PersonalContent.vue'
+import Personal from '~/pages/Personal.vue'
+
 
 Vue.use(Router)
 
@@ -112,40 +117,40 @@ const routes = [
     component: Checkout,
     props: true
   },
-  // {
-  //   path: '/personal',
-  //   name: 'personal',
-  //   meta: { requiresAuth: true },
-  //   component: Personal
-  // },
-  // {
-  //   path: '/personal/:section',
-  //   name: 'personal',
-  //   meta: { requiresAuth: true },
-  //   component: Personal,
-  //   children: [
-  //     {
-  //       path: '',
-  //       name: 'personal',
-  //       props: true,
-  //       component: PersonalContent
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: '/personal/:section/:page',
-  //   name: 'personal',
-  //   meta: { requiresAuth: true },
-  //   component: Personal,
-  //   children: [
-  //     {
-  //       path: '',
-  //       name: 'personal',
-  //       props: true,
-  //       component: PersonalContent
-  //     }
-  //   ]
-  // },
+  {
+    path: '/personal',
+    name: 'personal',
+    meta: { requiresAuth: true },
+    component: Personal
+  },
+  {
+    path: '/personal/:section',
+    name: 'personal',
+    meta: { requiresAuth: true },
+    component: Personal,
+    children: [
+      {
+        path: '',
+        name: 'personal',
+        props: true,
+        component: PersonalContent
+      }
+    ]
+  },
+  {
+    path: '/personal/:section/:page',
+    name: 'personal',
+    meta: { requiresAuth: true },
+    component: Personal,
+    children: [
+      {
+        path: '',
+        name: 'personal',
+        props: true,
+        component: PersonalContent
+      }
+    ]
+  },
   // {
   //   path: '/event-*',
   //   component: EventsItem

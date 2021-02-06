@@ -1137,6 +1137,9 @@ div[class*="message_i-"] {
 
 
 /* Cart widget */
+.cart-message {
+	margin-top: 15px;
+}
 .cart-widget {
 	position: fixed;
 	top: 0;
@@ -3066,12 +3069,12 @@ input.filter-group__range-to {
 .sipplier-btn {
 
 }
-.supplier-btn svg {
+/* .supplier-btn svg {
 	fill: #222222;
 }
 .supplier-btn_official svg {
 	fill: #3CA255;
-}
+} */
 .supplier-popover {
 	display: none;
 	min-width: 280px;
@@ -3203,10 +3206,9 @@ input.filter-group__range-to {
 	height: 40px;
 	color: #1C69D4;
 }
-.offer-table__more svg {
+.offer-table__more img {
 	margin-top: 2px;
 	margin-left: 8px;
-	fill: #1C69D4;
 }
 
 /* cart page */
@@ -3509,7 +3511,6 @@ input.filter-group__range-to {
 	height: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 .personal_menu-opened
 .navbar__item:not(:first-child) {
@@ -4035,111 +4036,111 @@ input.filter-group__range-to {
 	}
 	/* date */
 	.date__short {
-		border: 1px solid #bbbbbb;
-		border-radius: 4px;
-		height: 60px;
-		display: flex;
-		overflow: hidden;
-		align-items: center;
-		padding: 0 20px 0 45px;
-		flex-wrap: wrap;
-		background: url('/images/i-calendar_small.svg') no-repeat 20px;
+		border: 1px solid #bbbbbb !important;
+		border-radius: 4px !important;
+		height: 60px !important;
+		display: flex !important;
+		overflow: hidden !important;
+		align-items: center !important;
+		padding: 0 20px 0 45px !important;
+		flex-wrap: wrap !important;
+		background: url('/images/i-calendar_small.svg') no-repeat 20px !important;
 	}
 	.data__error {
-		border-color: #FF4400;
+		border-color: #FF4400 !important;
 	}
 	.date__selected-date {
-		white-space: nowrap;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		left: 0;
-		overflow-x: hidden;
-		padding-left: 50px;
+		white-space: nowrap !important;
+		position: absolute !important;
+		width: 100% !important;
+		height: 100% !important;
+		display: flex !important;
+		align-items: center !important;
+		left: 0 !important;
+		overflow-x: hidden !important;
+		padding-left: 50px !important;
 	}
 	.date__selected-date_placeholder {
-		color: #8e8e8e;
+		color: #8e8e8e !important;
 	}
 	.date__dash {
-		margin: 0 5px;
-		flex-shrink: 0;
+		margin: 0 5px !important;
+		flex-shrink: 0 !important;
 	}
 	.asd__wrapper--full-screen {
-		background: rgba(0, 0, 0, 0.5);
-		z-index: 999;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		background: rgba(0, 0, 0, 0.5) !important;
+		z-index: 999 !important;
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: center !important;
 	}
 	.asd__wrapper--full-screen > * {
-		background: #fff;
+		background: #fff !important;
 	}
 	.asd__day--enabled {
-		border: 1px solid #ccc;
+		border: 1px solid #ccc !important;
 	}
 	.asd__days-legend {
-		z-index: 1;
+		z-index: 1 !important;
 	}
 	.asd__change-month-button > button {
-		border: 1px solid #222222;
-		padding: 12px 15px;
-		display: flex;
-    	align-items: center;
+		border: 1px solid #222222 !important;
+		padding: 12px 15px !important;
+		display: flex !important;
+    	align-items: center !important;
 	}
 	.asd__change-month-button > button:hover {
-		border: 1px solid #222;
+		border: 1px solid #222 !important;
 	}
 	.asd__mobile-only {
-		display: block;
+		display: block !important;
 	}
 	.asd__mobile-header {
-		text-align: left;
+		text-align: left !important;
 		padding-top: 5px !important;
 		border: none !important;
 	}
 	.asd__mobile-header h3 {
-		font-size: 32px;
+		font-size: 32px !important;
 	}
 	.asd__month {
-		height: 342px;
+		height: 342px !important;
 	}
 	.asd__month-name {
-		margin:0 0 60px;
+		margin:0 0 60px !important;
 	}
 	.asd__days-legend {
-		margin-top: 15px;
+		margin-top: 15px !important;
 	}
 	.asd__action-buttons button {
-		border: 2px solid;
-		padding: 0 20px;
-		height: 60px;
-		border-radius: 4px;
+		border: 2px solid !important;
+		padding: 0 20px !important;
+		height: 60px !important;
+		border-radius: 4px !important;
 	}
 	.asd__action-buttons button:first-child {
-		color: #CC3333;
-		border-color: #CC3333;
+		color: #CC3333 !important;
+		border-color: #CC3333 !important;
 	}
 	.asd__action-buttons button:last-child {
 		
 	}
 	.asd__action-buttons {
-		padding-top: 0;
-		padding-bottom: 12px;
-		display: flex;
-		justify-content: space-between;
+		padding-top: 0 !important;
+		padding-bottom: 12px !important;
+		display: flex !important;
+		justify-content: space-between !important;
 
 	}
 	.asd__month {
-		padding: 10px;
-		padding-bottom: 12px;
+		padding: 10px !important;
+		padding-bottom: 12px !important;
 	}
 	.asd__change-month-button--next {
-		padding-right: 10px;
+		padding-right: 10px !important;
 	}
 	.asd__change-month-button--previous {
-		padding-left: 10px;
+		padding-left: 10px !important;
 	}
 	/* number */
 	.number__short {
@@ -4294,7 +4295,7 @@ input.filter-group__range-to {
 .crud__no-results {
 	text-align: center;
 }
-.crud__tools-cell * {
+.crud__button {
 	cursor: pointer;
 }
 .crud__action_block {
@@ -4486,6 +4487,44 @@ input.filter-group__range-to {
 }
 .un-form-coordinates__input {
 	width: calc(50% - 15px);
+}
+
+/* repeater */
+
+	/* repeater add button */
+
+.repeater__add-button {
+	background: url('/images/i-plus_repeater.svg') no-repeat left center;
+	display: inline-block;
+	padding: 5px 5px 5px 25px;
+	margin: 15px 0 10px 0;
+	color: #1C69D4;
+	cursor: pointer;
+}
+.repeater__add-text {
+	border-bottom: 1px solid #1C69D4;
+}
+
+	/* repeater delete block */
+
+.un-form__delete-block {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.un-form__delete-block::before {
+	content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: #E6E6E6;
+    margin-right: 10px;
+}
+.un-form__delete-button {
+	padding-left: 15px;
+	font-size: 12px;
+	background: url('/images/i-close-small-red_repeater.svg') no-repeat left center;
+	color: #FF4400;
+	cursor: pointer;
 }
 
 /* files */
