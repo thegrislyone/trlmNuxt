@@ -20,6 +20,7 @@ import Personal from '~/pages/Personal.vue'
 import Contact from '~/pages/Contact.vue'
 import EventsItem from '~/pages/EventsItem.vue'
 import EventsList from '~/pages/EventsList.vue'
+import Offers from '~/pages/Offers.vue'
 
 Vue.use(Router)
 
@@ -86,14 +87,14 @@ const routes = [
     path: '/public/product*',
     component: CategoryItem
   },
-  // {
-  //   path: '/offers',
-  //   component: Offers
-  // },
-  // {
-  //   path: '/public/offers',
-  //   component: Offers
-  // },
+  {
+    path: '/offers',
+    component: Offers
+  },
+  {
+    path: '/public/offers',
+    component: Offers
+  },
   // {
   //   path: '/search-result*',
   //   component: Search
