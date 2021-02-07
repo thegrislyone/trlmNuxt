@@ -3,7 +3,6 @@
     <!--
       TODO: i should got why there's an error
     -->
-    <no-ssr>
       <h1>{{ h1 }}</h1>
       
       <div class="main-container">
@@ -133,7 +132,7 @@
           
         </div>
       </div>
-    </no-ssr>
+
   </div>
 </template>
 
@@ -346,9 +345,9 @@
         this.popoverShow = false
         this.$store.commit('dom/setIsSidebarActive', false)
         
-        $('html, body').animate({
-          scrollTop: $('.main-content').offset().top
-        }, 400)
+        // $('html, body').animate({
+        //   scrollTop: $('.main-content').offset().top
+        // }, 400)
 
       },
       refreshCatalog() {
@@ -373,31 +372,27 @@
             this.offersLoading = false
           })
 
-        $('html, body').animate({
-          scrollTop: $('.main-content').offset().top
-        }, 400)
+        // $('html, body').animate({
+        //   scrollTop: $('.main-content').offset().top
+        // }, 400)
 
       },
       pickAnother() {
         this.$store.commit('dom/setIsSidebarActive', false)
         // todo: разобраться с поппером
         // this.$root.showPopper()
-        $('html, body').animate({
-          scrollTop: 0
-        }, 400)
+        // $('html, body').animate({
+        //   scrollTop: 0
+        // }, 400)
       }
     },
     created () {
-      // console.log(this.$router)
-      if (process.browser){
-        this.getPageData()
-      }
       
       // this.$eventBus.$on('change-pick-point', this.changePickpoint)
 
     },
     beforeDestroy () {
-      
+      this.getPageData()
       this.$store.commit('common/resetState')
       // this.$eventBus.$off('change-pick-point')
     }
